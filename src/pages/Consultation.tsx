@@ -1,32 +1,15 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
+import { useConsultation, questions } from "../context/ConsultationContext";
 import { sendConsultationData } from "../utils/api";
 
-type Answer = "Yes" | "No";
-
-const questions: string[] = [
-  "Do you have an allergy to pears?",
-  "Do you experience allergic reactions to Genovian Pears?",
-  "Do you experience itching or swelling after eating Genovian Pears?",
-  "Have you been diagnosed with any other allergies before?",
-  "Are you currently taking any medication for allergies?",
-];
-
 const Consultation: React.FC = () => {
-  const [currentQuestion, setCurrentQuestion] = useState(0);
-  const [answers, setAnswers] = useState<Answer[]>([]);
-  const [completed, setCompleted] = useState(false);
+  const { currentQuestion, answers, completed, addAnswer } = useConsultation();
 
-  const handleAnswer = (answer: Answer) => {
-    const newAnswers = [...answers, answer];
-    setAnswers(newAnswers);
-
-    if (currentQuestion < questions.length - 1) {
-      setCurrentQuestion(currentQuestion + 1);
-    } else {
-      setCompleted(true);
-      sendConsultationData(newAnswers);
+  useEffect(() => {
+    if (completed) {
+      sendConsultationData(answers);
     }
-  };
+  }, [completed, answers]);
 
   if (completed) {
     return (
@@ -40,8 +23,8 @@ const Consultation: React.FC = () => {
     <div className="consultation">
       <h2>{questions[currentQuestion]}</h2>
       <div className="button-group">
-        <button onClick={() => handleAnswer("Yes")}>Yes</button>
-        <button onClick={() => handleAnswer("No")}>No</button>
+        <button onClick={() => addAnswer("Yes")}>Yes</button>
+        <button onClick={() => addAnswer("No")}>No</button>
       </div>
     </div>
   );

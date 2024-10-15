@@ -1,46 +1,77 @@
-# Getting Started with Create React App
+# MedExpress Genovia - Allergy Consultation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React-based web application for MedExpress Genovia, allowing customers to complete a consultation for Genovian Pear allergy treatment.
 
-## Available Scripts
+## Getting Started
 
-In the project directory, you can run:
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
-### `npm start`
+### Prerequisites
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- Node.js (version 14.0.0 or later recommended)
+- npm (usually comes with Node.js)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### Installation
 
-### `npm test`
+1. Clone the repository:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+   ```
+   git clone https://github.com/your-username/medexpress-genovia.git
+   ```
 
-### `npm run build`
+2. Navigate to the project directory:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+   ```
+   cd medexpress-genovia
+   ```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. Install dependencies:
+   ```
+   npm install
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Running the Application
 
-### `npm run eject`
+To start the development server:
+` npm start
+`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+The page will be available at `http://localhost:3000/consultation`.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Project Structure
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- `src/components`: Contains reusable React components (Header, Footer)
+- `src/pages`: Contains page-level components (Consultation)
+- `src/context`: Contains the ConsultationContext for state management
+- `src/utils`: Utility functions, including API simulation
+- `public`: Public assets and HTML template
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Design Decisions and Trade-offs
 
-## Learn More
+1. **State Management**: The application uses React's Context API (ConsultationContext) for managing the consultation state. This provides a good balance between simplicity and the ability to share state across components without prop drilling.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Styling**: SCSS is used for styling, allowing for more powerful CSS features like nesting and variables. The styles are organized in a single App.scss file for this small project, but could be split into component-specific files as the project grows.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **TypeScript**: The project uses TypeScript for type safety and improved developer experience. This adds a bit of initial overhead but pays off in maintainability and reduced runtime errors.
+
+4. **API Simulation**: The `submitConsultation` function in `utils/api.ts` currently just logs to the console. In a real-world scenario, this would be replaced with actual API calls.
+
+5. **Responsive Design**: The application is designed to be responsive, with styles adapting to different screen sizes.
+
+## Future Improvements
+
+- Add form validation for more robust data collection
+- Implement error handling for API calls
+- Add unit and integration tests
+- Enhance accessibility features
+- Implement a more sophisticated UI design
+
+## Notes
+
+- This project was bootstrapped with Create React App.
+- The consultation questions are hardcoded for this MVP. In a production environment, these would likely be fetched from an API.
+- The project uses a simulated API call for data submission. In a real-world scenario, proper error handling and loading states would be implemented.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
