@@ -33,10 +33,14 @@ These instructions will get you a copy of the project up and running on your loc
 ### Running the Application
 
 To start the development server:
-` npm start
-`
+`npm start`
 
 The page will be available at `http://localhost:3000/consultation`.
+
+## Running Tests
+
+To run the test suite:
+`npm test`
 
 ## Project Structure
 
@@ -58,11 +62,18 @@ The page will be available at `http://localhost:3000/consultation`.
 
 5. **Responsive Design**: The application is designed to be responsive, with styles adapting to different screen sizes.
 
+## Testing Strategy
+
+The project uses Jest and React Testing Library for testing. Key test files include:
+
+- `Consultation.test.tsx`: Tests the consultation flow and user interactions.
+- `api.test.tsx`: Tests the simulated API calls.
+
 ## Future Improvements
 
 - Add form validation for more robust data collection
 - Implement error handling for API calls
-- Add unit and integration tests
+- Add more tests
 - Enhance accessibility features
 - Implement a more sophisticated UI design
 
