@@ -1,0 +1,89 @@
+// Variables
+$primary-color: #4287f5;
+$secondary-color: #1b528e;
+$message-color: #003f83;
+$background-color: #bcd4f4;
+$text-color: white;
+
+
+.App {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  .header {
+    background-color: $primary-color;
+    color: $text-color;
+    padding: 1rem;
+  
+    &-content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 1200px;
+      margin: 0 auto;
+  
+      .logo {
+        width: 100px;
+        height: auto;
+        margin-right: 1rem;
+      }
+  
+      .title {
+        font-size: 1.5rem;
+        margin: 0;
+      }
+    }
+  }
+  
+  main {
+    flex-grow: 1;
+    padding: 2rem;
+    background-color: $background-color;
+  }
+  
+  .consultation {
+    max-width: 600px;
+    margin: 0 auto;
+    color: $secondary-color;
+  
+    .button-group {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+  }
+  
+  .thank-you {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+    color: $message-color;
+    
+  }
+  
+  .footer {
+    background-color: $primary-color;
+    padding: 2rem;
+    display: flex;
+    justify-content: space-around;
+    color: $text-color;
+  
+    &-column {
+      flex: 1;
+      max-width: 300px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .footer {
+      flex-direction: column;
+  
+      &-column {
+        margin-bottom: .8rem;
+      }
+    }
+  }
+  
